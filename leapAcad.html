@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Leap Task</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"  media="screen,projection"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<style type="text/css">
+button.allDataBtn {
+	margin-bottom: 20px;
+}
+body {
+	background-color: #f2f2f2;
+	margin: 0;
+	padding: 0;
+}
+.hidden {
+	display: none;
+}
+table.productTable td.sn, table.productTable td.id {
+	width: 2%;
+}
+td.productName, td.arrival_date, td.color, td.size, td.price, td.rank {
+	width: 10%;
+	/*text-align: center;*/
+}
+thead td {
+	font-weight: bold;
+}
+table thead tr {
+	background-color: #d9d9d9 !important;
+}
+table, th , td  {
+  border: 1px solid #d0d0d0;
+  border-collapse: collapse;
+  padding: 5px;
+}
+table tr:nth-child(even) {
+  background-color: #e4e4e4;
+}
+table tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+
+div.order {
+	/*display: inline-flex;*/
+	margin-bottom: 20px;
+}
+div.category {
+	/*margin-right: 20px;*/
+}
+
+/*button {
+	color: white;
+	background-color: #00adef;
+	border-radius;:0;
+	text-transform: uppercase;
+	padding: 5px 20px;
+	box-shadow: 0 2px 0 0 #d3d3d3;
+	border: none;
+	z-index: 100;
+	cursor: pointer;
+}*/
+
+
+div.product {
+	width: 223px !important;
+	/*height: 150px;*/
+	border: 1px solid #d0d0d0;
+	padding: 0 !important;
+	margin: 5px 9px;
+	background-color: white;
+	text-align: center;
+}
+div.name, div.variants, div.price {
+	text-align: center;
+
+}
+span.box {
+	border: 1px solid gray;
+	height: 15px;
+	width: 15px;
+	margin: 5px;
+	cursor: pointer;
+}
+span.box.active {
+
+}
+div.variants {
+	display: inline-flex;
+}
+span.blue {
+	background-color: blue;
+}
+span.red {
+	background-color: red;
+}
+span.black {
+	background-color: black;
+}
+div.image {
+	height: 50px;
+	width: 75px;
+	padding-top: 10px;
+	display: inline-block;
+}
+
+
+nav {
+	/*height: 30px;*/
+	background-color: white;
+	/*padding: 10px 20px;*/
+}
+div.logo {
+	font-size: 20px;
+}
+div.main_content {
+	margin: 10px;
+}
+
+div.viewtype {
+	display: flex;
+	float: right;
+}
+div.viewtype p {
+	margin: 12px;
+}
+h5 {
+	color: #797979;
+}
+
+</style>
+
+
+<body>
+
+<div>
+	<nav class = "z-depth-2">
+		<div class = "logo"><a href="">Leap Skills</a></div>
+	</nav>
+</div>
+
+<div class = "main_content">
+
+	<div class = "row">
+		<div class = "col s3">
+			<div>
+				<button class = "allDataBtn btn">show products</button>
+			</div>
+
+			<div class = "order">
+
+				<div class = "category">
+					<label>Categories:</label>
+					<select class = "selectCategory browser-default">
+						<option disabled>select a category</option>
+					</select>
+				</div>
+
+				<div class = "ranking">
+					<label>Ranking:</label>
+					<select class = "selectRanking browser-default">
+						<option val = "">select ranking</option>
+					</select>
+				</div>
+
+			</div>
+		</div>
+
+		<div class = "col s9 productview hidden">
+
+			<div style = "width:100%">
+				<div style = "display:inline-block">
+					<h5>Products</h5>
+				</div>
+				<div class = "viewtype">
+					<p>
+						<input type = "radio" value = "list" id = "list" name = "viewtype" class = "with-gap" checked>
+						<label for = "list">List</label>
+					</p>
+					<p>
+						
+						<input type = "Radio" value = "grid" id = "grid" name = "viewtype" class = "with-gap" >
+						<label for = "grid">Grid</label>
+					</p>
+				</div>
+			</div>
+
+			<div class = "listview">
+
+				<div class = "allData hidden">
+					<table class = "productTable">
+						<thead>
+							<tr>
+								<td class = "sn">S.No.</td>
+								<td class = "id">Id</td>
+								<td class = "productName">Name</td>
+								<td class = "arrival_date">Arrival</td>
+								<td class = "size">
+									<!-- <select class = "productsize">
+									</select> -->
+									Size and Color
+								</td>
+								<td class = "price">Price</td>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+
+				<div class = "rankingOrdered hidden">
+					<table class = "productTable">
+						<thead>
+							<tr>
+								<td class = "sn">S.No.</td>
+								<td class = "id">Id</td>
+								<td class = "productName">Name</td>
+								<td class = "arrival_date">Arrival</td>
+								<td class = "size">
+									<!-- <select class = "productsize">
+									</select> -->
+									Size and Color
+								</td>
+								<td class = "price">Price</td>
+								<td class = "rank"></td>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+
+
+			<div class = "gridview hidden row">
+			</div>
+
+		</div>
+
+		
+
+		<div class = "grid hidden">
+				<div class = "product col s4 z-depth-1">
+					<div class = "image"><img src=""></div>
+					<div class = "name">Name</div>
+					<div class = "variants">
+						<!-- <span class = "blue box"></span>
+						<span class = "red box"></span>
+						<span class = "black box"></span> -->
+					</div>
+					<div>Size: <span class = "size">42</span></div>
+					<div class = "price">Rs. 1000</div>
+				</div>
+		</div>
+
+
+</div>
+
+</body>
+
+
+
+<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+	function sortByid(x,y) {
+		return x.id - y.id;
+	}
+
+	$(document).ready(function(){
+
+		$('button.allDataBtn').click(function(){
+			// alert('hi')
+			$.ajax({
+				type: 'GET',
+				url: 'https://stark-spire-93433.herokuapp.com/json',
+				success: function(data){
+
+					window.data = data;
+
+					// console.log(data);
+					var all_products = [];
+					for (var i=0;i<data.categories.length;i++) {
+						var categoryData = data.categories[i];
+						for (var j=0;j<categoryData.products.length;j++) {
+							all_products.push(categoryData.products[j]);
+						}
+					}
+					all_products.sort(sortByid);
+					// console.log(all_products)
+					window.all_products = all_products;
+
+					for (var i=0;i<data.categories.length;i++) {
+						$('div.category select.selectCategory').append('<option value = "'+i+'">'+data.categories[i].name+'</option');
+					}
+					// for default show
+					$('div.allData table tbody').empty(); // remove older data
+					$('div.allData').removeClass('hidden');
+
+					var categoryData = window.data.categories[0];
+
+					for (var i=0; i<categoryData.products.length;i++) {
+						var arrival_date = categoryData.products[i].date_added;
+						arrival_date = arrival_date.slice(0,arrival_date.indexOf('T'));
+						$('div.allData table tbody').append('<tr data-sn = "0">'+
+							'<td>'+(i+1)+'</td>'+
+							'<td>'+categoryData.products[i].id+'</td>'+
+							'<td>'+categoryData.products[i].name+'</td>'+
+							'<td>'+arrival_date+'</td>'+
+							'<td><select class = "productsize browser-default"></select></td>'+
+							'<td class = "price">Rs. '+categoryData.products[i].variants[0].price+'</td>'+
+							'</tr>');
+
+						var productTemp = $($('.grid').html());
+						productTemp.find('.name').html(categoryData.products[i].name);
+						productTemp.find('.price').html('Rs. '+ categoryData.products[i].variants[0].price);
+						productTemp.find('.size').html(categoryData.products[i].variants[0].size);
+
+
+						for (var j=0;j<categoryData.products[i].variants.length;j++){
+							$('table tbody td select.productsize').append('<option value = "'+j+'">'+categoryData.products[i].variants[j].size+', '+categoryData.products[i].variants[j].color+'</option>');
+
+							var color = categoryData.products[i].variants[j].color.toLowerCase();
+							var size = categoryData.products[i].variants[j].size;
+							var price = categoryData.products[i].variants[j].price;
+							productTemp.find('.variants').append('<span class = "'+color+' box" data-size="'+size+'" data-price="'+price+'"></span>');
+						}
+
+						productTemp.find('span.box').eq(0).addClass('z-depth-2');
+						$('div.gridview').append($(productTemp));
+						
+					}
+					window.categoryId = 0;
+
+					var rankingData = window.data.rankings;
+					// console.log(rankingData)
+
+					for (var i=0;i<rankingData.length;i++) {
+						$('div.ranking select.selectRanking').append('<option value = "'+i+'">'+rankingData[i].ranking+'</option>');
+					}
+
+
+					// viewtype
+					$('.productview').removeClass('hidden');
+					
+				},
+				error: function(){
+					alert('Error Occured')
+				}
+			});
+		});
+
+
+		$(document).on("change",'select.selectCategory', function(){
+			var categoryId = parseInt($(this).val());
+			
+			$('div.allData').removeClass('hidden');
+			$('div.rankingOrdered').addClass('hidden');
+			$('div.allData table tbody').empty(); // remove older data
+			$('div.gridview').empty();
+			var categoryData = window.data.categories[categoryId];
+			window.categoryId = categoryId;
+			// console.log(categoryData);
+
+			for (var i=0; i<categoryData.products.length;i++) {
+						var arrival_date = categoryData.products[i].date_added;
+						arrival_date = arrival_date.slice(0,arrival_date.indexOf('T'));
+						$('div.allData table tbody').append('<tr data-sn = "'+i+'">'+
+							'<td>'+(i+1)+'</td>'+
+							'<td>'+categoryData.products[i].id+'</td>'+
+							'<td>'+categoryData.products[i].name+'</td>'+
+							'<td>'+arrival_date+'</td>'+
+							'<td><select class = "productsize browser-default"></select></td>'+
+							'<td class = "price">Rs. '+categoryData.products[i].variants[0].price+'</td>'+
+							'</tr>');
+
+						var productTemp = $($('.grid').html());
+						productTemp.find('.name').html(categoryData.products[i].name);
+						productTemp.find('.price').html('Rs. '+ categoryData.products[i].variants[0].price);
+						productTemp.find('.size').html(categoryData.products[i].variants[0].size);
+
+						for (var j=0;j<categoryData.products[i].variants.length;j++){
+							$('table tbody td select.productsize').append('<option value = "'+j+'">'+categoryData.products[i].variants[j].size+', '+categoryData.products[i].variants[j].color+'</option>');
+
+							var color = categoryData.products[i].variants[j].color.toLowerCase();
+							var size = categoryData.products[i].variants[j].size;
+							var price = categoryData.products[i].variants[j].price;
+							productTemp.find('.variants').append('<span class = "'+color+' box" data-size="'+size+'" data-price="'+price+'"></span>');
+						}
+
+						productTemp.find('span.box').eq(0).addClass('z-depth-2');
+						$('div.gridview').append($(productTemp));
+
+					}
+			if (categoryData.products.length==0) {
+				alert('No products yet in this category.')
+			}
+
+		});
+
+		$(document).on('change', 'td select.productsize', function(){
+			// console.log($(this).val())
+			var sizeId = parseInt($(this).val());
+			var productId = parseInt($(this).closest('tr').attr('data-sn'));
+
+			var price = window.data.categories[window.categoryId].products[productId].variants[sizeId].price;
+
+			$(this).closest('tr').find('td.price').html('Rs. '+price);
+		});
+
+
+		// ranking ordering
+		$(document).on("change",'select.selectRanking', function(){
+			var rankingId = parseInt($(this).val());
+			if (rankingId==0) {
+				var name = "View Count";
+				var key = "view_count";
+			}
+			else if (rankingId==1) {
+				var name = "Order Count";
+				var key = "order_count";
+			}
+			else if (rankingId==2) {
+				var name = "Shares";
+				var key = "shares";
+			}
+			
+			$('div.allData').addClass('hidden');
+			$('div.rankingOrdered').removeClass('hidden');
+			$('div.rankingOrdered table tbody').empty(); // remove older data
+			$('div.gridview').empty();
+
+
+			var rankingData = window.data.rankings[rankingId];
+			window.rankingId = rankingId;
+			// console.log(categoryData);
+			$('div.rankingOrdered td.rank').html(name);
+
+			for (var i=0; i<rankingData.products.length;i++) {
+				var productId = rankingData.products[i].id;
+				var productData = window.all_products[productId-1];
+
+				var arrival_date = productData.date_added;
+				arrival_date = arrival_date.slice(0,arrival_date.indexOf('T'));
+
+				$('div.rankingOrdered table tbody').append('<tr data-sn = "'+i+'">'+
+					'<td>'+(i+1)+'</td>'+
+					'<td>'+productData.id+'</td>'+
+					'<td>'+productData.name+'</td>'+
+					'<td>'+arrival_date+'</td>'+
+					'<td><select class = "productsize browser-default"></select></td>'+
+					'<td class = "price">Rs. '+productData.variants[0].price+'</td>'+
+					'<td>'+rankingData.products[i][key]+'</td>'+
+					'</tr>');
+
+				var productTemp = $($('.grid').html());
+				productTemp.find('.name').html(productData.name);
+				productTemp.find('.price').html('Rs. '+ productData.variants[0].price);
+				productTemp.find('.size').html(productData.variants[0].size);
+				productTemp.append('<div>'+name+' : '+rankingData.products[i][key]+'</div>')
+
+				for (var j=0;j<productData.variants.length;j++){
+					$('table tbody td select.productsize').append('<option value = "'+j+'">'+productData.variants[j].size+', '+productData.variants[j].color+'</option>');
+
+					var color = productData.variants[j].color.toLowerCase();
+					var size = productData.variants[j].size;
+					var price = productData.variants[j].price;
+					productTemp.find('.variants').append('<span class = "'+color+' box" data-size="'+size+'" data-price="'+price+'"></span>');
+				}
+
+				productTemp.find('span.box').eq(0).addClass('z-depth-2');
+				$('div.gridview').append($(productTemp));
+			}
+
+		});
+
+		$(document).on('change', 'input[name=viewtype]', function(){
+			var viewtype = $('input[name=viewtype]:checked').val();
+			if (viewtype=="list") {
+				$('div.listview').removeClass('hidden');
+				$('div.gridview').addClass('hidden');
+			}
+			else if (viewtype=="grid") {
+				$('div.listview').addClass('hidden');
+				$('div.gridview').removeClass('hidden');
+			}
+		});
+
+		$(document).on('click', 'span.box', function(){
+			$(this).closest('.variants').find('.z-depth-2').removeClass('z-depth-2');
+			$(this).addClass('z-depth-2');
+
+			var price = $(this).attr('data-price');
+			var size = $(this).attr('data-size');
+
+			$(this).closest('.product').find('.price').html('Rs. '+price);
+			$(this).closest('.product').find('.size').text(size);
+		})
+
+	});
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+</html>
