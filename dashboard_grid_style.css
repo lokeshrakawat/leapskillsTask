@@ -1,0 +1,157 @@
+body {
+  padding: 0;
+  min-height: 100%;
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  font-family: 'Work Sans';
+  font-size: 18px;
+  font-weight: 400;
+  background-color: #f1f1f1;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Barlow';
+	font-weight: 600 ;
+	color:#111;
+	/*margin-top:5px;*/
+	margin-bottom:5px;
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 100%;
+  }
+}
+.container {
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 0 10px;
+  text-transform: uppercase;
+  font-size: 18px;
+  color: white;
+  background-color: #38bdc4;
+  border: 1px solid #38bdc4;
+  box-shadow: 0.5px 1px 7px gray;
+}
+.btn:hover {
+  box-shadow: 1px 2px 10px gray;
+  background-color: #78bdc4;
+}
+
+.sidebar{
+  position: fixed;
+  width: 14%;
+  top: 90px;
+  left: 20px;
+  /*box-shadow: 0.5px 1px 8px gray;*/
+}
+.sidebar-sticky {
+  height: 400px;
+  color: #38bfc4;
+}
+
+li.nav-item {
+  padding: 10px;
+  cursor: pointer;
+}
+li.nav-item.active {
+  color: white;
+  background-color: #38bfc4;
+  /*border: 1px solid #3b8168;*/
+  box-shadow: 1px 2px 10px gray;
+}
+li.nav-item:hover {
+  color: white;
+  background-color: #78bfc4;
+  box-shadow: 1px 3px 16px gray;
+}
+p.sidebar_heading {
+  font-weight: 400;
+  font-size: 20px;
+  color: black;
+  margin: 15px 0;
+  text-align: center;
+}
+div.view_style.col {
+  height: 100px;
+  margin: 10px 0;
+}
+/*select:focus,select option:hover {
+  background-color: #38bfc4 !important;
+}*/ 
+.disabled_li {
+  pointer-events :none;
+  opacity: 0.25;
+  background-color: #f2f2f2;
+}
+
+
+
+/*input.search {
+  width: 100%;
+}*/
+.hidden {
+  display: none;
+}
+.pmDiv h5 {
+  font-weight: 500;
+  font-size: 18px;
+  margin: 0
+}
+
+
+.grid_heading {
+  position: fixed;
+  width: 100%;
+  height: auto;
+  top: 0;
+  padding-top: 20px;
+  z-index: 998;
+  background-color: white;
+}
+.grid_heading h4 {
+  margin: 10px 0;
+}
+div.tableDiv {
+  margin-top: 70px;
+}
+
+table.table td, table.table th {
+  width: 16%;
+  text-align: center;
+  vertical-align: middle;
+}
+table.table th {
+  padding: 5px 0;
+  background-color: #e2e2e2;
+}
+table.table tr:nth-child(even) {
+  background-color: #f6f6f6;
+}
+table.table tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+span.box {
+  padding: 12px 20px;
+  color: #38bfc4;
+  cursor: pointer;
+}
+span.box:hover {
+  color: white;
+  background-color: #38bfc4;
+}
+span.batch.box {
+  cursor: default;
+}
+
+
+/*graph css*/
+div.graphDiv {
+  margin-top: 70px;
+}
+div.metric_graph {
+  width: 100%;
+}
+div.metric_heading {
+  padding: 5px 0;
+}
