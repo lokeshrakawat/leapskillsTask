@@ -2,99 +2,139 @@
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+<link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
 
 <link rel="stylesheet" type="text/css" href="style.css">
 <link rel="stylesheet" type="text/css" href="dashboard_grid_style.css">
 <link href='https://fonts.googleapis.com/css?family=Work Sans' rel='stylesheet'>
 <link href="https://fonts.googleapis.com/css?family=Barlow" rel="stylesheet">
 
-<div class = "container">
-	<div class = "row">
 
-    	<div class = "col-md-2 ">
-	    			
-			<nav class="bg-light sidebar">
-		        <div class="sidebar-sticky">
+<div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-overlay">
+	<header class="bmd-layout-header">
+        <div class="navbar navbar-light bg-faded bg-color">
+          <button class="navbar-toggler d-block d-lg-non" type="button" data-toggle="drawer" data-target="#dw-s2">
+            <span class="sr-only">Toggle drawer</span>
+            <i class="material-icons">menu</i>
+          </button>
+          <ul class="nav navbar-nav col text-center justify-content-center align-self-center">
+            <li class="logo">
+              <img src="assets/images/logo.png" width="125" height="auto" alt="leapskills Logo">
+            </li>
+          </ul>
+          <!-- <div>
+            <img src="../assets/images/nav-triangle-tranparent.png" width="45" height="auto" alt="leapskills Logo">
+          </div> -->
+        </div>
+    </header>
+      <div id="dw-s2" class="bmd-layout-drawer bg-faded">
+        <header>
+            <a class="navbar-brand"><span> Hi </span><span class="username"> Name </span></a>
+        </header>
+        <ul class="list-group">
+          <!-- <a class="list-group-item" href="#">Home</a> -->
+        </ul>
+      </div>
 
-		        	<div class = "form-group">
-		        		<label for = "centre_select">Centre</label>
-		        		<select id = "centre_select" class = "centre_select form-control">
-		        			<option value = "" selected disabled>Select Centre</option>
-		        		</select>
-		        	</div>
+    <main class="bmd-layout-content">  
+	<div class = "container">
+		<div class = "row">
 
-		        	<div class = "form-group">
-		        		<label for = "batch_select">Batch</label>
-		        		<select id = "batch_select" class = "batch_select form-control">
-		        			<option value = "" selected disabled>Select Batch</option>
-		        		</select>
-		        	</div>
+	    	<div class = "col-md-2 ">
+		    			
+				<nav class="bg-light sidebar">
+			        <div class="sidebar-sticky">
 
-<!-- 		          <p class = "sidebar_heading">Data</p>
-		          <ul class="nav flex-column">
-		            <li class="nav-item centre_view active">
-                        All Centres
-		            </li>
-		            <li class="nav-item batch_view">
-                        All Batches
-		            </li>
-		          </ul>
- -->
-		          <!-- <div class = "col-sm-12 view_style">
-		          	<p class = "sidebar_heading">View</p>
-		          	<ul class="nav flex-column">
-			            <li class="nav-item grid_view active">
-                            Grid
+			        	<div lcass = "form-group">
+			        		<button class = "btn home_button">Home</button>
+			        	</div>	
+
+			        	<div class = "form-group">
+			        		<label for = "centre_select">Centre</label>
+			        		<select id = "centre_select" class = "centre_select form-control">
+			        			<option value = "" selected disabled>Select Centre</option>
+			        		</select>
+			        	</div>
+
+			        	<div class = "form-group">
+			        		<label for = "batch_select">Batch</label>
+			        		<select id = "batch_select" class = "batch_select form-control">
+			        			<option value = "" selected disabled>Select Batch</option>
+			        		</select>
+			        	</div>
+
+	<!-- 		          <p class = "sidebar_heading">Data</p>
+			          <ul class="nav flex-column">
+			            <li class="nav-item centre_view active">
+	                        All Centres
 			            </li>
-			            <li class="nav-item graph_view">
-                            Graph
+			            <li class="nav-item batch_view">
+	                        All Batches
 			            </li>
 			          </ul>
-		          </div> -->
+	 -->
+			          <!-- <div class = "col-sm-12 view_style">
+			          	<p class = "sidebar_heading">View</p>
+			          	<ul class="nav flex-column">
+				            <li class="nav-item grid_view active">
+	                            Grid
+				            </li>
+				            <li class="nav-item graph_view">
+	                            Graph
+				            </li>
+				          </ul>
+			          </div> -->
 
-		        </div>
-		      </nav>
-    	</div>
-
-    	<div class = "col-md-10">
-	    	<div class = "row grid_content">
-	    		<div class = "col-sm-12">
-	    			<div class = "grid_heading">
-	    				<h4><span class = "type">Centre</span> Information (Latest) </h4>
-	    				<span class = "pmDiv hidden">
-		    				<h5>Name of PM: <span class = "pm_name"></span></h5>
-		    			</span>
-	    			</div>
-	    			
-
-	    			<div class = "col-sm-12 tableDiv">
-	    				<table class = "table table-striped">
-	    					<thead>
-	    						<tr>
-	    							<th></th>
-		    						<th>Name</th>
-		    						<th>Total Student (NOS)</th>
-		    						<th>Avg. Attendance</th>
-		    						<th>% Student above 60% Avg Attendance</th>
-		    						<th>Avg. AppUptake</th>
-		    						<th>% Student above 60% Avg AppUptake</th>
-		    						<th>Graph Visualization</th>
-		    					</tr>
-	    					</thead>
-	    					<tbody>
-	    						
-	    					</tbody>
-	    				</table>
-	    			</div>
-
-	    			<div class = "col-sm-12 graphDiv hidden">
-	    			</div>
-
-	    		</div>
+			        </div>
+			      </nav>
 	    	</div>
-	    </div>
 
+	    	<div class = "col-sm-12 col-md-10">
+		    	<div class = "row grid_content">
+		    		<div class = "col-sm-12">
+		    			<div class = "grid_heading">
+		    				<div class = "home_small">
+		    					<button class = "btn home_button"><i class = "material-icons">home</i></button>
+		    				</div>
+		    				<h4><span class = "type">Centre</span> Information (Latest) </h4>
+		    				<span class = "pmDiv hidden">
+			    				<h5>Name of PM: <span class = "pm_name"></span></h5>
+			    			</span>
+		    			</div>
+		    			
+
+		    			<div class = "col-sm-12 tableDiv">
+		    				<table class = "table table-striped">
+		    					<thead>
+		    						<tr>
+		    							<th></th>
+			    						<th>Name</th>
+			    						<th>Total Student (NOS)</th>
+			    						<th>Avg. Attendance</th>
+			    						<th>% Student above 60% Avg Attendance</th>
+			    						<th>Avg. AppUptake</th>
+			    						<th>% Student above 60% Avg AppUptake</th>
+			    						<th>Graph Visualization</th>
+			    					</tr>
+		    					</thead>
+		    					<tbody>
+		    						
+		    					</tbody>
+		    				</table>
+		    			</div>
+
+		    			<div class = "col-sm-12 graphDiv hidden">
+		    			</div>
+
+		    		</div>
+		    	</div>
+		    </div>
+
+		</div>
 	</div>
+	</main>
+
 </div>
 
 
@@ -103,6 +143,8 @@
 <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
@@ -114,11 +156,23 @@ var view_style = 'grid_view';
 
     $(document).ready(function(){
 
+    	$('body').bootstrapMaterialDesign();
+
     	// $('li.nav-item.centre_view').addClass('active');
     	get_all_centre_grid();
 
     	check_condition();
     	
+
+    	$(document).on('click', 'button.home_button', function(){
+			view_style = 'grid_view';
+			update_ids('all_centre', 'centre_value')
+			update_ids('', 'batch_value')
+			change_table_content(window.all_grid['data'], 'Centre');
+			change_main_heading('Centre', null);
+			grid();
+			remove_batch_options();
+    	});
     	
 
     	$(document).on('click', 'span.Centre', function(){
@@ -133,26 +187,36 @@ var view_style = 'grid_view';
 			if (centre_value == 'all_centre') {
 				// $('li.grid_view').removeClass('disabled_li')
 				update_ids(centre_value, 'centre_value')
-				// change_table_content(window.all_grid['data'], 'Centre')
+				change_table_content(window.all_grid['data'], 'Centre')
+				change_main_heading('Centre', null);
+				grid();
+				remove_batch_options();
 			}
 			else {
 				centre_value = parseInt(centre_value);
 				update_ids(centre_value, 'centre_value');
-				change_centre(centre_value);
+				if (view_style=='grid_view') {
+					change_centre(centre_value);
+				}
+				else {
+					graph();
+					get_graph_data(centre_value, 'centre_view', null);
+				}
 				// $('li.grid_view').removeClass('disabled_li');
 			}
 		});
 		$(document).on('change', 'select.batch_select', function(){
 			batch_value = $(this).val();
 			if (batch_value == 'all_batch') {
-				// enable 
 				update_ids(batch_value, 'batch_value')
-				// grid();
+				change_centre(centre_value);
+				grid();
 
 			}
 			else {
 				batch_value = parseInt(batch_value);
 				update_ids(batch_value, 'batch_value')
+				graph();
 				if (window.graph_data==null) {
 					get_graph_data(centre_value, 'batch_view', batch_value);
 				}
@@ -160,44 +224,27 @@ var view_style = 'grid_view';
 					show_graph('batch_view', batch_value);
 				}
 			}
+			
 		});
 
 		$(document).on('click', 'button.vis', function(){
 			var id = parseInt( $(this).closest('tr').find('td span.box').attr('id') );
 			if (centre_value=='all_centre') {
 				update_ids(id, 'centre_value')
+				graph()
 				get_graph_data(id, 'centre_view', null);
 			}
 			else {
 				update_ids(id, 'batch_value')
-				if (window.graph_data==null) {
-					get_graph_data(centre_value, 'batch_view', id);
-				}
-				else {
-					show_graph('batch_view', id);
-				}
+				graph();
+				// if (window.graph_data==null) {
+				get_graph_data(centre_value, 'batch_view', id);
+				// }
+				// else {
+				
+				// }
 			}
-			$('div.tableDiv').addClass('hidden');
-			$('div.graphDiv').removeClass('hidden');
-			view_style = "graph_view";
 		});
-
-		// $(document).on('click','li.nav-item', function(){
-		// 	if ( $(this).hasClass('grid_view') ) {
-		// 		view_style = 'grid_view';
-
-		// 		centre_value = $('select.centre_select').val();
-		// 		if (centre_value!='all_centre') {
-		// 			batch_value = $('select.batch_select').val();
-		// 		}
-		// 		else {
-
-		// 		}
-		// 	}
-		// 	else if ( $(this).hasClass('graph_view') ) {
-		// 		view_style = 'graph_view';
-		// 	}
-		// });
 
 		// $('li.nav-item.batch_view').tooltip({
 		   //    title: 'Select Centre',
@@ -220,6 +267,7 @@ var view_style = 'grid_view';
 			$('div.tableDiv').addClass('hidden');
 			$('div.graphDiv').removeClass('hidden');
 			view_style = "graph_view";
+			$('div.graphDiv').empty();
 			check_condition();
 		}
 		
@@ -234,6 +282,10 @@ var view_style = 'grid_view';
 	    			window.all_grid = data;
 	    			var centres = window.all_grid['data'];
 	    			change_table_content(centres,'Centre');
+	    			$('div.graphDiv').addClass('hidden');
+					$('div.tableDiv').removeClass('hidden');
+					view_style = "grid_view";
+					check_condition()
 	    			fill_select_option(centres);
 	    			$('select.centre_select').find('option[value="all_centre"]').prop('selected',true);
 	    		},
@@ -247,13 +299,34 @@ var view_style = 'grid_view';
     		$('.table tbody').empty();
     		var elem = '';
 			for (var i=0;i<data.length;i++) {
-				// elem += '<tr><td><span class = "'+view+' box" id = "'+i+'">'+view+' - '+ (i+1) +'</span></td><td>'+data[i].name +'</td><td>'+ data[i].total_students+'</td><td>'+data[i].avg_att +'</td><td>'+data[i]['60_att'] +'</td><td>'+data[i].avg_app +'</td><td>'+data[i]['60_app'] +'</td></tr>';
-				elem += '<tr><td><span class = "'+view+' box" id = "'+i+'">'+view+' - '+ (i+1) +'</span></td><td>'+data[i].name +'</td><td>'+ data[i].total_students+'</td><td>'+data[i].avg_att +'%</td><td>'+data[i]['60_att'] +'%</td><td>'+data[i].avg_app +'%</td><td>'+data[i]['60_app'] +'%</td><td><button class = "btn vis">Visualize</button></td></tr>';
+				if (data[i]['avg_att']== -1) {
+					var avg_att = 'NA';
+				}
+				else {
+					var avg_att = data[i]['avg_att']+'%';
+				}
+				if (data[i]['60_att']== -1) {
+					var above_60_att = 'NA';
+				}
+				else {
+					var above_60_att = data[i]['60_att']+'%';
+				}
+				if (data[i]['avg_app']== -1) {
+					var avg_app = 'NA';
+				}
+				else {
+					var avg_app = data[i]['avg_app']+'%';
+				}
+				if (data[i]['60_app']== -1) {
+					var above_60_app = 'NA';
+				}
+				else {
+					var above_60_app = data[i]['60_app']+'%';
+				}
+				elem += '<tr><td><span class = "'+view+' box" id = "'+data[i].id+'">'+view+' - '+ (i+1) +'</span></td><td>'+data[i].name +'</td><td>'+ data[i].total_students+'</td><td>'+avg_att +'</td><td>'+above_60_att +'</td><td>'+avg_app +'</td><td>'+above_60_app +'</td><td><button class = "btn vis">Visualize</button></td></tr>';
 			}
 			$('.table tbody').append(elem);
-			grid();
-			
-			// change_main_heading(view, null);
+			// grid();
     	}
 
 
@@ -266,20 +339,23 @@ var view_style = 'grid_view';
 			else if (view=='Batch') {
 				$('span.type').html(view);
 	    		$('.pmDiv').removeClass('hidden');
+	    		// var id = search_item( window.all_grid['data'], id);
 	    		$('.pm_name').html(window.all_grid['data'][id].pm);	
 			}
     	}
 
     	function change_centre(id) {
     		// console.log(id)
+    		var id = search_item(window.all_grid['data'], id);
     		var batches = window.all_grid['data'][id].batches;
     		change_main_heading('Batch', id);
     		
-    		$('.active').removeClass('active');
+    		// $('.active').removeClass('active');
     		// $('li.nav-item.batch_view').addClass('active');
     		fill_select_option(batches)
     		update_ids('all_batch', 'batch_value')
     		change_table_content(batches, 'Batch');
+    		grid()
     	}
 
     	function update_ids(id, value_type) {
@@ -287,6 +363,7 @@ var view_style = 'grid_view';
     			centre_value = id;
     			$('select.centre_select').find('option[value="'+id+'"]').prop('selected',true);
     			if (centre_value!='all_centre') {
+    				var id = search_item(window.all_grid['data'], id);
     				fill_select_option(window.all_grid['data'][id]['batches']);
     			}	
     			update_ids('all_batch','batch_value')
@@ -298,75 +375,55 @@ var view_style = 'grid_view';
     		check_condition();
     	}
 
+    	function search_item(data, key) {
+    		for (var i=0; i<data.length; i++) {
+    			if ( data[i].id == key ) {
+    				return i;
+    			}
+    		}
+    	}
+
 	///////// 		function for side navigation 		/////////
 
    		function fill_select_option(data) {
     		if ( centre_value=='all_centre' ) {
 	    		$('select.centre_select').append('<option value = "all_centre">All Centres</option>');
 	    		for (var i=0;i<data.length;i++) {
-	    			var elem = '<option value = "'+i+'">'+ data[i].name +' (Centre - '+ (i+1) +')</option>';
+	    			var elem = '<option value = "'+data[i].id+'">'+ data[i].name +' (Centre - '+ (i+1) +')</option>';
 	    			$('select.centre_select').append(elem);
 	    		}
+	    		var centre_size = $('select.centre_select option').length;
+    			$('select.centre_select').attr('size',centre_size).css({'overflow':'auto'});
 	    	}
 	    	else {
-	    		$('select.batch_select option.batch_option').each(function(){
-	    			//remove older options
-	    			$(this).remove();
-	    		}); 
+	    		remove_batch_options();
 	    		$('select.batch_select').append('<option value = "all_batch" class = "batch_option">All Batches</option>');
 	    		for (var i=0;i<data.length;i++) {
-	    			var elem = '<option value = "'+i+'" class = "batch_option">'+ data[i].name +' (Batch - '+ (i+1) +')</option>';
+	    			var elem = '<option value = "'+data[i].id+'" class = "batch_option">'+ data[i].name +' (Batch - '+ (i+1) +')</option>';
 	    			$('select.batch_select').append(elem);
 	    		}
+	    		var batch_size = $('select.batch_select option').length;
+    			$('select.batch_select').attr('size',batch_size).css({'overflow':'hidden'});
 	    	}
     	}
+
+    	function remove_batch_options() {
+    		$('select.batch_select option.batch_option').each(function(){
+    			$(this).remove();
+    		});
+    	}
+
     	function check_condition() {
-			if (view_style == 'grid_view') {
-				if (centre_value == 'all_centre') {
-					$('select.batch_select').attr('disabled',true);
-				}
-				else {
-					
-					$('select.batch_select').attr('disabled',false);
-				}
+			if (view_style == 'grid_view' )  {
+				$('select.batch_select').attr('disabled',true);
+				$('select.batch_select').removeAttr('size').remove;
+			}
+			else {		
+				$('select.batch_select').attr('disabled',false);
+				var batch_size = $('select.batch_select option').length;
+    			$('select.batch_select').attr('size',batch_size).css({'overflow':'hidden'});
 			}
 		}
-  //   	function check_condition() {
-		// 	if (view_style == 'grid_view') {
-		// 		$('.active').removeClass('active')
-		// 		$('li.nav-item.grid_view').addClass('active');
-		// 		if (centre_value == 'all_centre') {
-		// 			$('select.batch_select').attr('disabled',true);
-		// 			$('li.nav-item.graph_view').addClass('disabled_li');
-		// 		}
-		// 		else {
-		// 			// alert('batch_select')
-		// 			$('select.batch_select').attr('disabled',false);
-		// 			$('li.nav-item.graph_view').removeClass('disabled_li');
-		// 		}
-		// 	}
-		// 	else if (view_style == 'graph_view') {
-		// 		$('.active').removeClass('active')
-		// 		$('li.nav-item.graph_view').addClass('active');
-		// 		if (batch_value!='all_batch') {
-		// 			$('li.nav-item.grid_view').addClass('disabled_li');
-		// 		}
-		// 	}
-
-		// 	if (batch_value == 'all_batch') {
-		// 		//disable grid view
-		// 		$('li.nav-item.grid_view').removeClass('disabled_li');
-		// 	}
-		// 	// else {
-		// 	// 	//disable graph view
-		// 	// 	$('li.nav-item.grid_view').addClass('disabled_li');
-		// 	// }
-		// }
-
-
-
-
-
 
 
 
@@ -375,8 +432,7 @@ var view_style = 'grid_view';
 
 		// //////////		Graph function		//////////////////////
 		function get_graph_data(id, view, batch_id) {
-			var url = 'http://muddy-fog-5129.getsandbox.com/'+'center/'+ (id+1);
-			// centre -1 example data API
+			var url = 'http://muddy-fog-5129.getsandbox.com/'+'center/'+ (id);
 	    	$.ajax({
 	    		type: 'GET',
 	    		url: url,
@@ -385,7 +441,6 @@ var view_style = 'grid_view';
 	    			// console.log(data)
 	    			window.graph_data = data;
 	    			var centres = window.graph_data['data'];
-	    			// fill_select_option(centres['batches']);
 	    			var values = centres['metrices'];
 	    			// if centre ->bacth_id- null, else obvious
 	    			show_graph(view, batch_id);
@@ -399,10 +454,15 @@ var view_style = 'grid_view';
 
 		function show_graph(view, id) {
 			if (view != 'centre_view') {
+				id = search_item( window.graph_data['data']['batches'], id);
 				values = window.graph_data['data']['batches'][id]['metrices'];
+				centre_id = search_item(window.all_grid['data'], centre_value)
+				change_main_heading('Batch', centre_id);
+				
 			}
 			else {
 				values = window.graph_data['data']['metrices'];
+				change_main_heading('Centre', null);
 			}
 			$('div.graphDiv').empty();
 			for (var i=0;i<values.length;i++) {
@@ -410,10 +470,14 @@ var view_style = 'grid_view';
 
 				generate_graph('metric_graph_'+i, values[i], 'scatter', view);
 			}
-			
+
 		}
 
-
+		function sortByDate(a, b){
+		       var aNewDate = new Date( a['date']).getTime();
+		       var bNewDate = new Date( b['date']).getTime();
+		       return ((aNewDate < bNewDate) ? -1 : ((aNewDate > bNewDate) ? 1 : 0));
+		}
 
 		function generate_trace_format(data, type, mode, name, view) {
 			if (view=='centre_view') {
@@ -422,22 +486,39 @@ var view_style = 'grid_view';
 			else {
 				var key = 'date';
 			}
+			var sorted_data = [];
+			
+			if (key=='date') {
+				for (var i=0;i<data['metric'].length;i++) {
+					sorted_data.push( { 'date' : date_with_dash(data[key][i]), 'metric' : data['metric'][i] } )
+				}
+				sorted_data.sort(sortByDate);
+			}
+			else {
+				for (var i=0;i<data['metric'].length;i++) {
+					sorted_data.push( { 'session' : data[key][i], 'metric' : data['metric'][i] } )
+				}
+			}
+
     		var x = [];
-    		for (var i=0; i<data[key].length;i++){
-    			var x_value = data[key][i];
-    			if (key=='date') {
-    				x_value = date_with_dash(x_value);
-    			}
+    		for (var i=0; i<sorted_data.length;i++){
+    			var x_value = sorted_data[i][key];
     			x.push(x_value);
     		}
 
     		var y = [];
-    		for (var i=0; i<data['metric'].length;i++){
-    			if (data['metric'][i]!='NA') {
-    				y.push(data['metric'][i]);
+    		for (var i=0; i<sorted_data.length;i++){
+    			var y_value = sorted_data[i]['metric'];
+    			if (y_value != -1) {
+    				y.push(y_value);
     			}
     			else {
-    				y.push(y[y.length-1]);
+    				if (y.length>0) {
+    					y.push(y[y.length-1]);
+    				}
+    				else {
+    					y.push(0);
+    				}
     			}
     		}
     		
@@ -512,6 +593,7 @@ var view_style = 'grid_view';
 				layout.xaxis.title = "Session";
 				layout.xaxis.type = '-';
 				layout.xaxis.tickformat = '';
+				layout.title = values.name + ' v/s session';
 			}
 			
 			Plotly.newPlot(div, data, layout);
